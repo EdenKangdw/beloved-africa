@@ -5,9 +5,9 @@ load_dotenv()
 
 
 class Config:
-    MYSQL_ROOT_PASSWORD = 123456
-    MYSQL_DATABASE = "uploadChecker"
-    MYSQL_USER = "checker"
+    MYSQL_ROOT_PASSWORD = 1111
+    MYSQL_DATABASE = "beloved-africa"
+    MYSQL_USER = "beloved"
     MYSQL_PASSWORD = 123456
 
     MYSQL_PORT = 32489
