@@ -1,0 +1,19 @@
+version: '3.4'
+services:
+  upload-checker-server:
+    image: upload-checker:latest
+    build:
+      context: .
+      dockerfile: ./checker.Dockerfile
+    volumes:
+      - ./app:/app
+    entrypoint: bash
+    # command: 
+    #   - "bash"
+    #   - "-c"
+    #   - |
+    #     pip install debugpy -t /tmp \
+    #     && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678
+    ports:
+      - 8000:8000
+      - 5678:5678

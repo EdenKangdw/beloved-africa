@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  upload-checker-server:
+    image: upload-checker:latest
+    container_name: upload-checker
+    build: 
+      context: .
+      dockerfile: ./checker.Dockerfile
+    environment:
+      TZ: "Asia/Seoul"
+    volumes:
+      - ./app:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+    networks:
+      - my_network
+    command: ["./wait-for-it.sh", "mysql:3306", "--", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD:  123456
+      MYSQL_DATABASE: uploadChecker
+      MYSQL_USER: checker
+      MYSQL_PASSWORD: 123456
+      TZ: "Asia/Seoul"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - my_network
+
+volumes:
+  mysql_data:
+
+networks:
+  my_network:
+    driver: bridge

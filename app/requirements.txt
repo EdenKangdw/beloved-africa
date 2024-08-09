@@ -1,0 +1,14 @@
+fastapi==0.68.0
+uvicorn==0.15.0
+httpx
+sqlalchemy
+pymysql
+python-dotenv
+cryptography
+python-jose[cryptography]
+passlib
+aiofiles
+jinja2==3.0
+python-multipart
+ffmpeg-python
+pillow
