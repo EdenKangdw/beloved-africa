@@ -10,7 +10,7 @@ class Config:
     MYSQL_USER = "checker"
     MYSQL_PASSWORD = 123456
 
-    MYSQL_PORT = 32072
+    MYSQL_PORT = 32489
     MYSQL_HOST = "svc.sel5.cloudtype.app"
     # MYSQL_PORT = 3306
     # MYSQL_HOST = "mysql"
